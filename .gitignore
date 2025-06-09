@@ -1,0 +1,26 @@
+# Compilados
+*.class
+
+# Logs
+*.log
+
+# Configuración IDEs
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+
+# Maven
+target/
+dependency-reduced-pom.xml
+release.properties
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Archivos temporales
+*.tmp
+*.bak
+*.swp
