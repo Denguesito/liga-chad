@@ -18,6 +18,5 @@ public class GestionEquiposService {
 
     public void agregarJugadorAEquipo(Equipo equipo, Jugador jugador) {
         equipo.agregarJugador(jugador);
-        // El mensaje de éxito o error ya se muestra en agregarJugador
     }
 }

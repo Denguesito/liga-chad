@@ -32,45 +32,48 @@ public class MenuPartidos {
 
         Partido partido = new Partido(equipoLocal.get(), equipoVisitante.get());
 
+        RegistroPartidoStrategy registroStrategy;
         if (opcion == 1) {
-            registrarManual(partido);
+            registroStrategy = new RegistroManualImpl(this);
         } else {
-            registrarAutomatico(partido);
+            registroStrategy = new RegistroAutomaticoImpl(this);
         }
+        registroStrategy.registrar(partido);
 
         gestionPartidos.finalizarPartido(partido);
         gestionPartidos.registrarPartidoEnLiga(liga, partido);
     }
 
-    private void registrarManual(Partido partido) {
-        while (true) {
-            String nombre = LectorConsola.leerTexto("Jugador que anotó gol (ENTER para terminar): ");
-            if (nombre.isBlank()) break;
+    public void mostrarJugadoresDisponibles(Partido partido) {
+        System.out.println("Jugadores disponibles para el registro:");
+        partido.getEquipoLocal().getJugadores().forEach(j -> System.out.println("- " + j.getNombre() + " (Local)"));
+        partido.getEquipoVisitante().getJugadores().forEach(j -> System.out.println("- " + j.getNombre() + " (Visitante)"));
+    }
 
-            Optional<Jugador> jugador = partido.getEquipoLocal().buscarJugadorPorNombre(nombre);
-            if (jugador.isEmpty()) {
-                jugador = partido.getEquipoVisitante().buscarJugadorPorNombre(nombre);
-            }
-
-            jugador.ifPresentOrElse(
-                    j -> gestionPartidos.registrarGol(partido, j),
-                    () -> System.out.println("❌ Jugador no encontrado.")
-            );
+    public void mostrarResultadoYGanador(Partido partido) {
+        int golesLocal = partido.getGolesLocal();
+        int golesVisitante = partido.getGolesVisitante();
+        String nombreLocal = partido.getEquipoLocal().getNombre();
+        String nombreVisitante = partido.getEquipoVisitante().getNombre();
+        System.out.println("Resultado final: " + nombreLocal + " " + golesLocal + " - " + golesVisitante + " " + nombreVisitante);
+        if (golesLocal > golesVisitante) {
+            System.out.println("Ganador: " + nombreLocal);
+        } else if (golesVisitante > golesLocal) {
+            System.out.println("Ganador: " + nombreVisitante);
+        } else {
+            System.out.println("Empate");
         }
     }
 
-    private void registrarAutomatico(Partido partido) {
-        Random rand = new Random();
-        int totalGoles = rand.nextInt(6); // 0 a 5 goles totales
-        List<Jugador> posibles = new ArrayList<>();
-        posibles.addAll(partido.getEquipoLocal().getJugadores());
-        posibles.addAll(partido.getEquipoVisitante().getJugadores());
-
-        for (int i = 0; i < totalGoles; i++) {
-            Jugador goleador = posibles.get(rand.nextInt(posibles.size()));
-            gestionPartidos.registrarGol(partido, goleador);
+    public void asignarMinutosEIngresos(Equipo equipo, int minutosPorPartido) {
+        equipo.getTitulares().forEach(j -> {
+            Titular t = (Titular) j;
+            t.agregarMinutos(minutosPorPartido);
+        });
+        List<Jugador> suplentes = equipo.getSuplentes();
+        if (!suplentes.isEmpty()) {
+            Suplente s = (Suplente) suplentes.get(new Random().nextInt(suplentes.size()));
+            s.marcarIngreso();
         }
-
-        System.out.println("✅ Partido simulado con " + totalGoles + " goles asignados aleatoriamente.");
     }
 }

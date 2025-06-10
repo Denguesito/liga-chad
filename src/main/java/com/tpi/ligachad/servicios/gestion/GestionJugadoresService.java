@@ -12,7 +12,6 @@ public class GestionJugadoresService {
             Jugador jugador = jugadorOpt.get();
             if (jugador.isTransferible()) {
                 origen.quitarJugador(jugador);
-                // Al transferir, el jugador pasa a ser transferible en el nuevo equipo
                 jugador.setTransferible(true);
                 destino.agregarJugador(jugador);
                 System.out.println("✅ Jugador transferido exitosamente.");

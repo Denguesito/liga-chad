@@ -17,7 +17,7 @@ public class ExportadorCSVService {
 
     public void exportarJugadoresDeEquipo(Equipo equipo) {
         String nombreArchivo = equipo.getNombre().replaceAll(" ", "_") + ".csv";
-        String rutaDirectorio = System.getProperty("user.dir") + File.separator + "csv";
+        String rutaDirectorio = "src/main/java/com/tpi/ligachad/csv";
         File carpeta = new File(rutaDirectorio);
 
         if (!carpeta.exists()) {
