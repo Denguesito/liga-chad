@@ -3,6 +3,15 @@
 ## 📌 Descripción General
 **LIGA CHAD** es una aplicación de consola escrita en **Java**, orientada a la gestión de una liga de fútbol local. Permite registrar equipos, jugadores titulares y suplentes, simular partidos, gestionar estadísticas, generar reportes detallados y exportar los datos de equipos a archivos CSV.
 
+## ⚠️ Aviso importante sobre datos precargados y límites
+
+- Al iniciar la aplicación, la liga ya cuenta con equipos precargados (Unión, For Ever, Sarmiento y Sacachispas), cada uno con 5 jugadores titulares y 3 suplentes, listos para usar y probar todas las funcionalidades.
+- El sistema permite un máximo de **12 equipos** en la liga.
+- Cada equipo puede tener hasta **10 jugadores**: 5 titulares, 3 suplentes y 2 transferibles (que pueden ser titulares o suplentes).
+- Si intentas agregar un jugador y se supera alguno de estos límites, el sistema mostrará un mensaje y no permitirá la acción. Lo mismo ocurre al transferir jugadores: solo se permite si hay cupo disponible en el equipo destino.
+
+---
+
 ## 🛠️ Funcionalidades Principales
 
 | Funcionalidad | Descripción |

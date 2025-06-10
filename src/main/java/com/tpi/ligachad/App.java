@@ -10,6 +10,7 @@ public class App {
         System.out.println("====================================\n");
 
         Liga liga = new Liga();
+        com.tpi.ligachad.utils.DatosPrecargados.cargarEquiposYJugadores(liga);
         MenuPrincipal menu = new MenuPrincipal(liga);
         menu.mostrar();
 

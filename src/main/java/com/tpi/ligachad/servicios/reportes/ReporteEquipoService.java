@@ -20,6 +20,19 @@ public class ReporteEquipoService {
         List<Jugador> sinGoles = estadisticas.jugadoresSinGoles(equipo);
         sinGoles.forEach(j -> System.out.println("- " + j.getNombre()));
 
+        // Titular con más minutos
+        com.tpi.ligachad.servicios.estadisticas.EstadisticasJugadoresService estadJugadores = new com.tpi.ligachad.servicios.estadisticas.EstadisticasJugadoresService();
+        Optional<Titular> titularMasMinutos = estadJugadores.titularConMasMinutos(equipo.getJugadores());
+        titularMasMinutos.ifPresent(t ->
+            System.out.println("Titular con más minutos: " + t.getNombre() + " (" + t.getMinutosJugados() + " minutos)")
+        );
+
+        // Suplente más utilizado
+        Optional<Suplente> suplenteMasUtilizado = estadisticas.suplenteMasUtilizado(equipo);
+        suplenteMasUtilizado.ifPresent(s ->
+            System.out.println("Suplente más utilizado: " + s.getNombre() + " (" + s.getPartidosDesdeBanco() + " ingresos)")
+        );
+
         // Mostrar suplente no usado
         Optional<Suplente> suplenteNoUsado = equipo.getSuplentes().stream()
             .map(j -> (Suplente) j)

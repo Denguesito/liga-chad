@@ -18,6 +18,6 @@ public class GestionEquiposService {
 
     public void agregarJugadorAEquipo(Equipo equipo, Jugador jugador) {
         equipo.agregarJugador(jugador);
-        System.out.println("✅ Jugador agregado al equipo " + equipo.getNombre());
+        // El mensaje de éxito o error ya se muestra en agregarJugador
     }
 }

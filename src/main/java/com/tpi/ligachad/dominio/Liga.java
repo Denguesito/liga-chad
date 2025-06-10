@@ -14,8 +14,8 @@ public class Liga {
     }
 
     public void agregarEquipo(Equipo equipo) {
-        if (equipos.size() >= 10) {
-            System.out.println("⚠️ Límite de 10 equipos alcanzado.");
+        if (equipos.size() >= 12) {
+            System.out.println("⚠️ Límite de 12 equipos alcanzado.");
             return;
         }
         equipos.add(equipo);
