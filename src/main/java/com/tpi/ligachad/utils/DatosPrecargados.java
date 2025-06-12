@@ -4,7 +4,6 @@ import com.tpi.ligachad.dominio.*;
 
 public class DatosPrecargados {
     public static void cargarEquiposYJugadores(Liga liga) {
-        
         Equipo union = new Equipo("Union");
         union.agregarJugador(new Titular("Juan Pérez", 25, true));
         union.agregarJugador(new Titular("Pedro Gómez", 28, false));
