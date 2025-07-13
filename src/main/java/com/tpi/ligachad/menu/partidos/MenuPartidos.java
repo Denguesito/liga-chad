@@ -2,13 +2,14 @@ package com.tpi.ligachad.menu.partidos;
 
 import com.tpi.ligachad.dominio.*;
 import com.tpi.ligachad.servicios.gestion.GestionPartidosService;
+import com.tpi.ligachad.servicios.gestion.impl.GestionPartidosServiceImpl;
 import com.tpi.ligachad.utils.LectorConsola;
 
 import java.util.*;
 
 public class MenuPartidos {
     private final Liga liga;
-    private final GestionPartidosService gestionPartidos = new GestionPartidosService();
+    private final GestionPartidosService gestionPartidos = new GestionPartidosServiceImpl();
 
     public MenuPartidos(Liga liga) {
         this.liga = liga;
@@ -22,7 +23,7 @@ public class MenuPartidos {
         Optional<Equipo> equipoVisitante = liga.buscarEquipoPorNombre(visitante);
 
         if (equipoLocal.isEmpty() || equipoVisitante.isEmpty()) {
-            System.out.println("❌ Uno o ambos equipos no existen.");
+            System.out.println("Uno o ambos equipos no existen.");
             return;
         }
 

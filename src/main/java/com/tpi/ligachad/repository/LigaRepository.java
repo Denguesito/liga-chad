@@ -1,9 +1,17 @@
-package com.tpi.ligachad.utils;
+package com.tpi.ligachad.repository;
 
 import com.tpi.ligachad.dominio.*;
+import java.util.ArrayList;
+import java.util.List;
 
-public class DatosPrecargados {
-    public static void cargarEquiposYJugadores(Liga liga) {
+public class LigaRepository {
+    private final List<Equipo> equipos = new ArrayList<>();
+
+    public LigaRepository() {
+        precargarEquiposYJugadores();
+    }
+
+    private void precargarEquiposYJugadores() {
         Equipo union = new Equipo("Union");
         union.agregarJugador(new Titular("Juan Pérez", 25, true));
         union.agregarJugador(new Titular("Pedro Gómez", 28, false));
@@ -13,7 +21,7 @@ public class DatosPrecargados {
         union.agregarJugador(new Suplente("Diego Castro", 21, true));
         union.agregarJugador(new Suplente("Emiliano Torres", 23, false));
         union.agregarJugador(new Suplente("Gonzalo Díaz", 24, true));
-        liga.agregarEquipo(union);
+        equipos.add(union);
 
         Equipo forEver = new Equipo("For Ever");
         forEver.agregarJugador(new Titular("Nicolás Sosa", 26, true));
@@ -24,7 +32,7 @@ public class DatosPrecargados {
         forEver.agregarJugador(new Suplente("Ramiro Vera", 22, true));
         forEver.agregarJugador(new Suplente("Tomás Aguirre", 20, false));
         forEver.agregarJugador(new Suplente("Facundo Ríos", 23, true));
-        liga.agregarEquipo(forEver);
+        equipos.add(forEver);
 
         Equipo sarmiento = new Equipo("Sarmiento");
         sarmiento.agregarJugador(new Titular("Bruno Méndez", 27, true));
@@ -35,7 +43,7 @@ public class DatosPrecargados {
         sarmiento.agregarJugador(new Suplente("Franco López", 22, true));
         sarmiento.agregarJugador(new Suplente("Matías Ríos", 24, false));
         sarmiento.agregarJugador(new Suplente("Santiago Castro", 21, true));
-        liga.agregarEquipo(sarmiento);
+        equipos.add(sarmiento);
 
         Equipo sacachispas = new Equipo("Sacachispas");
         sacachispas.agregarJugador(new Titular("Martín Torres", 28, true));
@@ -46,6 +54,10 @@ public class DatosPrecargados {
         sacachispas.agregarJugador(new Suplente("Diego Gómez", 23, true));
         sacachispas.agregarJugador(new Suplente("Nicolás Acosta", 22, false));
         sacachispas.agregarJugador(new Suplente("Ezequiel López", 21, true));
-        liga.agregarEquipo(sacachispas);
+        equipos.add(sacachispas);
+    }
+
+    public List<Equipo> getEquipos() {
+        return equipos;
     }
 }

@@ -17,7 +17,7 @@ public class LectorConsola {
                 System.out.print(mensaje);
                 return Integer.parseInt(scanner.nextLine());
             } catch (NumberFormatException e) {
-                System.out.println("❌ Ingresá un número válido.");
+                System.out.println("Ingresá un número válido.");
             }
         }
     }
@@ -28,12 +28,12 @@ public class LectorConsola {
             String input = scanner.nextLine().trim().toUpperCase();
             if (input.equals("SI")) return true;
             if (input.equals("NO")) return false;
-            System.out.println("❌ Ingreso inválido. Escribí 'SI' o 'NO'.");
+            System.out.println("Ingreso inválido. Escribí 'SI' o 'NO'.");
         }
     }
 
     public static void esperarEnter() {
-        System.out.println("\nPresioná ENTER para continuar...");
+        System.out.println("\nPresione ENTER para continuar...");
         scanner.nextLine();
     }
 }

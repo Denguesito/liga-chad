@@ -2,12 +2,12 @@ package com.tpi.ligachad.menu.partidos;
 
 import com.tpi.ligachad.dominio.Partido;
 import com.tpi.ligachad.utils.LectorConsola;
-import com.tpi.ligachad.servicios.gestion.GestionPartidosService;
+import com.tpi.ligachad.servicios.gestion.impl.GestionPartidosServiceImpl;
 
 import java.util.Optional;
 
 public class RegistroManualImpl implements RegistroPartidoStrategy {
-    private final GestionPartidosService gestionPartidos = new GestionPartidosService();
+    private final GestionPartidosServiceImpl gestionPartidos = new GestionPartidosServiceImpl();
     private final MenuPartidos menuPartidos;
 
     public RegistroManualImpl(MenuPartidos menuPartidos) {

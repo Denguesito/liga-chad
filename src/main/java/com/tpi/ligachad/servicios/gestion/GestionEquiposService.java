@@ -1,22 +1,10 @@
 package com.tpi.ligachad.servicios.gestion;
 
-import com.tpi.ligachad.dominio.*;
-import java.util.Optional;
+import com.tpi.ligachad.dominio.Equipo;
+import com.tpi.ligachad.dominio.Jugador;
+import com.tpi.ligachad.dominio.Liga;
 
-public class GestionEquiposService {
-
-    public void crearEquipo(Liga liga, String nombre) {
-        Optional<Equipo> existente = liga.buscarEquipoPorNombre(nombre);
-        if (existente.isPresent()) {
-            System.out.println("⚠️ El equipo ya existe.");
-            return;
-        }
-        Equipo nuevo = new Equipo(nombre);
-        liga.agregarEquipo(nuevo);
-        System.out.println("✅ Equipo creado: " + nombre);
-    }
-
-    public void agregarJugadorAEquipo(Equipo equipo, Jugador jugador) {
-        equipo.agregarJugador(jugador);
-    }
+public interface GestionEquiposService {
+    void crearEquipo(Liga liga, String nombre);
+    void agregarJugadorAEquipo(Equipo equipo, Jugador jugador);
 }

@@ -2,11 +2,11 @@ package com.tpi.ligachad.menu.partidos;
 
 import com.tpi.ligachad.dominio.Partido;
 import com.tpi.ligachad.dominio.Jugador;
-import com.tpi.ligachad.servicios.gestion.GestionPartidosService;
+import com.tpi.ligachad.servicios.gestion.impl.GestionPartidosServiceImpl;
 import java.util.*;
 
 public class RegistroAutomaticoImpl implements RegistroPartidoStrategy {
-    private final GestionPartidosService gestionPartidos = new GestionPartidosService();
+    private final GestionPartidosServiceImpl gestionPartidos = new GestionPartidosServiceImpl();
     private final MenuPartidos menuPartidos;
 
     public RegistroAutomaticoImpl(MenuPartidos menuPartidos) {

@@ -25,7 +25,7 @@ public class MenuPrincipal {
         boolean salir = false;
 
         while (!salir) {
-            System.out.println("\n⚽ MENÚ PRINCIPAL - LIGA CHAD ⚽");
+            System.out.println("\nMENU PRINCIPAL - LIGA CHAD");
             System.out.println("1. Crear equipo");
             System.out.println("2. Agregar jugadores a un equipo");
             System.out.println("3. Listar todos los jugadores y su tipo");
@@ -37,7 +37,7 @@ public class MenuPrincipal {
             System.out.println("9. Exportar jugadores a CSV");
             System.out.println("0. Salir");
 
-            int opcion = LectorConsola.leerEntero("👉 Elegí una opción: ");
+            int opcion = LectorConsola.leerEntero("Elegí una opción: ");
 
             switch (opcion) {
                 case 1 -> menuEquipos.crearEquipo();
@@ -50,10 +50,10 @@ public class MenuPrincipal {
                 case 8 -> menuExtras.transferirJugador();
                 case 9 -> menuExtras.exportarCSV();
                 case 0 -> {
-                    System.out.println("👋 ¡Gracias por usar la Liga Chad!");
+                    System.out.println("Gracias por usar la Liga Chad!");
                     salir = true;
                 }
-                default -> System.out.println("❌ Opción inválida.");
+                default -> System.out.println("Opción inválida.");
             }
 
             if (!salir) LectorConsola.esperarEnter();

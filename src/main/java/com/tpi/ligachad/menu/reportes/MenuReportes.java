@@ -1,15 +1,18 @@
 package com.tpi.ligachad.menu.reportes;
 
 import com.tpi.ligachad.dominio.*;
-import com.tpi.ligachad.servicios.reportes.*;
+import com.tpi.ligachad.servicios.reportes.ReporteLigaService;
+import com.tpi.ligachad.servicios.reportes.ReporteEquipoService;
+import com.tpi.ligachad.servicios.reportes.impl.ReporteLigaServiceImpl;
+import com.tpi.ligachad.servicios.reportes.impl.ReporteEquipoServiceImpl;
 import com.tpi.ligachad.utils.LectorConsola;
 
 import java.util.Optional;
 
 public class MenuReportes {
     private final Liga liga;
-    private final ReporteLigaService reporteLiga = new ReporteLigaService();
-    private final ReporteEquipoService reporteEquipo = new ReporteEquipoService();
+    private final ReporteLigaService reporteLiga = new ReporteLigaServiceImpl();
+    private final ReporteEquipoService reporteEquipo = new ReporteEquipoServiceImpl();
 
     public MenuReportes(Liga liga) {
         this.liga = liga;
@@ -25,7 +28,7 @@ public class MenuReportes {
         if (equipo.isPresent()) {
             reporteEquipo.generarReporte(equipo.get());
         } else {
-            System.out.println("⚠️ Equipo no encontrado.");
+            System.out.println("Equipo no encontrado.");
         }
     }
 }

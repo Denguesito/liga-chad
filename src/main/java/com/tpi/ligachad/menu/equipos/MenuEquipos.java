@@ -2,13 +2,14 @@ package com.tpi.ligachad.menu.equipos;
 
 import com.tpi.ligachad.dominio.*;
 import com.tpi.ligachad.servicios.gestion.GestionEquiposService;
+import com.tpi.ligachad.servicios.gestion.impl.GestionEquiposServiceImpl;
 import com.tpi.ligachad.utils.LectorConsola;
 
 import java.util.Optional;
 
 public class MenuEquipos {
     private final Liga liga;
-    private final GestionEquiposService gestionEquipos = new GestionEquiposService();
+    private final GestionEquiposService gestionEquipos = new GestionEquiposServiceImpl();
 
     public MenuEquipos(Liga liga) {
         this.liga = liga;
@@ -23,7 +24,7 @@ public class MenuEquipos {
         String nombreEquipo = LectorConsola.leerTexto("Nombre del equipo al que se agregan jugadores: ");
         Optional<Equipo> equipoOpt = liga.buscarEquipoPorNombre(nombreEquipo);
         if (equipoOpt.isEmpty()) {
-            System.out.println("⚠️ Equipo no encontrado.");
+            System.out.println("Equipo no encontrado.");
             return;
         }
 
