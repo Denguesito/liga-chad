@@ -1,8 +1,10 @@
-package com.tpi.ligachad.menu.partidos;
+package com.tpi.ligachad.menu.partidos.impl;
 
 import com.tpi.ligachad.dominio.Partido;
 import com.tpi.ligachad.dominio.Jugador;
 import com.tpi.ligachad.servicios.gestion.impl.GestionPartidosServiceImpl;
+import com.tpi.ligachad.menu.partidos.MenuPartidos;
+import com.tpi.ligachad.menu.partidos.RegistroPartidoStrategy;
 import java.util.*;
 
 public class RegistroAutomaticoImpl implements RegistroPartidoStrategy {
@@ -26,9 +28,9 @@ public class RegistroAutomaticoImpl implements RegistroPartidoStrategy {
             gestionPartidos.registrarGol(partido, goleador);
         }
         try {
-            menuPartidos.getClass().getMethod("asignarMinutosEIngresos", partido.getEquipoLocal().getClass().getSuperclass(), int.class)
+            menuPartidos.getClass().getMethod("asignarMinutosEIngresos", com.tpi.ligachad.dominio.Equipo.class, int.class)
                 .invoke(menuPartidos, partido.getEquipoLocal(), 40);
-            menuPartidos.getClass().getMethod("asignarMinutosEIngresos", partido.getEquipoVisitante().getClass().getSuperclass(), int.class)
+            menuPartidos.getClass().getMethod("asignarMinutosEIngresos", com.tpi.ligachad.dominio.Equipo.class, int.class)
                 .invoke(menuPartidos, partido.getEquipoVisitante(), 40);
         } catch (Exception e) {}
         System.out.println("✅ Partido simulado con " + totalGoles + " goles asignados aleatoriamente.");

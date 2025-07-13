@@ -5,6 +5,9 @@ import com.tpi.ligachad.servicios.gestion.GestionPartidosService;
 import com.tpi.ligachad.servicios.gestion.impl.GestionPartidosServiceImpl;
 import com.tpi.ligachad.utils.LectorConsola;
 
+import com.tpi.ligachad.menu.partidos.impl.RegistroManualImpl;
+import com.tpi.ligachad.menu.partidos.impl.RegistroAutomaticoImpl;
+
 import java.util.*;
 
 public class MenuPartidos {

@@ -1,24 +1,24 @@
 package com.tpi.ligachad.menu;
 
 import com.tpi.ligachad.dominio.Liga;
-import com.tpi.ligachad.menu.equipos.MenuEquipos;
+import com.tpi.ligachad.menu.equipos.impl.MenuEquiposImpl;
 import com.tpi.ligachad.menu.partidos.MenuPartidos;
-import com.tpi.ligachad.menu.reportes.MenuReportes;
-import com.tpi.ligachad.menu.otros.MenuExtras;
+import com.tpi.ligachad.menu.reportes.impl.MenuReportesImpl;
+import com.tpi.ligachad.menu.otros.impl.MenuExtrasImpl;
 import com.tpi.ligachad.utils.LectorConsola;
 
 public class MenuPrincipal {
 
-    private final MenuEquipos menuEquipos;
+    private final MenuEquiposImpl menuEquipos;
     private final MenuPartidos menuPartidos;
-    private final MenuReportes menuReportes;
-    private final MenuExtras menuExtras;
+    private final MenuReportesImpl menuReportes;
+    private final MenuExtrasImpl menuExtras;
 
     public MenuPrincipal(Liga liga) {
-        this.menuEquipos = new MenuEquipos(liga);
+        this.menuEquipos = new MenuEquiposImpl(liga);
         this.menuPartidos = new MenuPartidos(liga);
-        this.menuReportes = new MenuReportes(liga);
-        this.menuExtras = new MenuExtras(liga);
+        this.menuReportes = new MenuReportesImpl(liga);
+        this.menuExtras = new MenuExtrasImpl(liga);
     }
 
     public void mostrar() {

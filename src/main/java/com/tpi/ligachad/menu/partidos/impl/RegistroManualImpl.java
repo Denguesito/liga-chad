@@ -1,9 +1,10 @@
-package com.tpi.ligachad.menu.partidos;
+package com.tpi.ligachad.menu.partidos.impl;
 
 import com.tpi.ligachad.dominio.Partido;
 import com.tpi.ligachad.utils.LectorConsola;
 import com.tpi.ligachad.servicios.gestion.impl.GestionPartidosServiceImpl;
-
+import com.tpi.ligachad.menu.partidos.MenuPartidos;
+import com.tpi.ligachad.menu.partidos.RegistroPartidoStrategy;
 import java.util.Optional;
 
 public class RegistroManualImpl implements RegistroPartidoStrategy {
@@ -34,10 +35,9 @@ public class RegistroManualImpl implements RegistroPartidoStrategy {
             );
         }
         try {
-            Class<?> equipoClass = partido.getEquipoLocal().getClass().getSuperclass();
-            menuPartidos.getClass().getMethod("asignarMinutosEIngresos", equipoClass, int.class)
+            menuPartidos.getClass().getMethod("asignarMinutosEIngresos", com.tpi.ligachad.dominio.Equipo.class, int.class)
                 .invoke(menuPartidos, partido.getEquipoLocal(), 40);
-            menuPartidos.getClass().getMethod("asignarMinutosEIngresos", equipoClass, int.class)
+            menuPartidos.getClass().getMethod("asignarMinutosEIngresos", com.tpi.ligachad.dominio.Equipo.class, int.class)
                 .invoke(menuPartidos, partido.getEquipoVisitante(), 40);
         } catch (Exception e) {}
         try {
