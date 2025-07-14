@@ -36,9 +36,6 @@
 5. Los datos exportados (CSV) se guardan automáticamente en la carpeta `/csv`, que se crea si no existe.
 
 
-
-**Diseño guiado por funcionalidades**: Se identificaron las entidades y servicios directamente del enunciado antes de programar.
-**Modularización temprana**: Desde el principio se propuso separar claramente los servicios de gestión, estadísticas y presentación.
 **Uso de clases simuladoras**: Se agregó una opción para simular automáticamente resultados de partidos para facilitar el testeo y generación de estadísticas.
 
 
@@ -56,4 +53,4 @@
 3. Ejecutar `App.java`
 4. Seguir las instrucciones del menú por consola
 
-Gracias por visitar la LIGA CHAD. El proyecto está listo para brillar como campeón.
+Gracias por visitar la LIGA CHAD.
