@@ -33,7 +33,7 @@ public class RegistroAutomaticoImpl implements RegistroPartidoStrategy {
             menuPartidos.getClass().getMethod("asignarMinutosEIngresos", com.tpi.ligachad.dominio.Equipo.class, int.class)
                 .invoke(menuPartidos, partido.getEquipoVisitante(), 40);
         } catch (Exception e) {}
-        System.out.println("✅ Partido simulado con " + totalGoles + " goles asignados aleatoriamente.");
+        System.out.println("Partido simulado con " + totalGoles + " goles asignados aleatoriamente.");
         try {
             menuPartidos.getClass().getMethod("mostrarResultadoYGanador", partido.getClass())
                 .invoke(menuPartidos, partido);
